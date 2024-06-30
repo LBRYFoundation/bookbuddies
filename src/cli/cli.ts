@@ -81,7 +81,7 @@ if (!(await settingsFile.exists())) {
 	console.log(settings)
 }
 
-let currentSpinner = ora('Checking for the LBRY SDK').start()
+let currentSpinner = ora({ text: 'Checking for the LBRY SDK', spinner: 'bouncingBar' }).start()
 
 coreEvents.on('lbrynet exists', (exists) => {
 	if (exists) return currentSpinner.succeed('LBRY SDK exists')
@@ -95,7 +95,7 @@ coreEvents.on('lbrynet downloaded', () => {
 	currentSpinner.color = 'yellow'
 })
 coreEvents.on('lbrynet starting', () => {
-	currentSpinner = ora('Starting the LBRY SDK').start()
+	currentSpinner = ora({ text: 'Starting the LBRY SDK', spinner: 'bouncingBar' }).start()
 })
 coreEvents.on('lbrynet start', () => {
 	currentSpinner.succeed('Started the LBRY SDK')
