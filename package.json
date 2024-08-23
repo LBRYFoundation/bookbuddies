@@ -1,26 +1,33 @@
 {
 	"name": "bookbuddies",
+	"version": "0.0.1",
 	"type": "module",
 	"devDependencies": {
+		"@eslint/js": "^9.9.0",
 		"@types/bun": "latest",
 		"@types/cli-progress": "^3.11.5",
+		"@types/eslint__js": "^8.42.3",
 		"@types/readline-sync": "^1.4.8",
-		"eslint": "^9.6.0",
+		"@typescript-eslint/eslint-plugin": "^8.2.0",
+		"eslint": "^9.9.0",
 		"eslint-config-prettier": "^9.1.0",
-		"prettier": "^3.3.2"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
+		"prettier": "^3.3.2",
+		"typescript-eslint": "^8.2.0"
 	},
 	"scripts": {
-		"start:cli": "bun run src/cli/cli.ts",
-		"start:gui": "bun run src/gui/gui.ts",
-		"dev:cli": "bun eslint --fix && bun prettier . -w && bun run src/cli/cli.ts",
-		"dev:gui": "bun eslint --fix && bun prettier . -w && bun run src/gui/gui.ts",
-		"build:cli": "bun build --compile --minify --sourcemap src/cli/cli.ts",
-		"build:gui": "bun build --compile --minify --sourcemap src/gui/gui.ts"
+		"lint": "bun eslint --fix && bun prettier . -w",
+		"start:cli": "NODE_ENV=production bun run src/cli/cli.ts",
+		"start:gui": "NODE_ENV=production bun run src/gui/gui.ts",
+		"dev:cli": "NODE_ENV=development bun run src/cli/cli.ts",
+		"dev:gui": "NODE_ENV=development bun run src/gui/gui.ts",
+		"build:cli": "NODE_ENV=production bun build --compile --minify --sourcemap src/cli/cli.ts",
+		"build:gui": "NODE_ENV=production bun build --compile --minify --sourcemap src/gui/gui.ts"
 	},
 	"dependencies": {
+		"@inquirer/prompts": "^5.3.8",
+		"@sentry/bun": "^8.26.0",
+		"adm-zip": "^0.5.15",
+		"app-root-path": "^3.1.0",
 		"cli-progress": "^3.12.0",
 		"colors": "^1.4.0",
 		"hono": "^4.4.10",

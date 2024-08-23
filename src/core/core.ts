@@ -1,7 +1,8 @@
 import JSZip from 'jszip'
 import EventEmitter from 'events'
 import fs from 'fs/promises'
-import { Readable } from 'stream'
+import appRoot from 'app-root-path'
+import { mkdir } from 'fs/promises'
 
 const eventEmitter = new EventEmitter()
 
@@ -10,7 +11,10 @@ const ensureLBRYSDK = async () => {
 	// If not, download it and save to the correct location.
 	// The LBRY SDK is lbrynet for Linux and macOS, and lbrynet.exe for Windows.
 
-	const path = 'lbrynet' + (process.platform === 'win32' ? '.exe' : '')
+	const path = `lbrynet${process.platform === 'win32' ? '.exe' : ''}`
+	await mkdir(`${appRoot}/lbrynet`).catch((e) =>
+		e.code === 'EEXIST' ? null : Promise.reject(e)
+	)
 	const file = Bun.file(path)
 	if (!(await file.exists())) {
 		eventEmitter.emit('lbrynet exists', false)
@@ -22,10 +26,10 @@ const ensureLBRYSDK = async () => {
 		const zip = new JSZip()
 		await zip.loadAsync(lbrynetBuffer)
 		const lbrynet = zip.file(path)?.nodeStream()
-		eventEmitter.emit('lbrynet downloaded')
 		if (!lbrynet) throw new Error('Failed to download the LBRY SDK.')
+		eventEmitter.emit('lbrynet downloaded')
 
-		await new Promise<void>((resolve, reject) => {
+		await new Promise<void>((resolve) => {
 			const chunks: Buffer[] = []
 			lbrynet.on('data', (chunk) => chunks.push(chunk))
 			lbrynet.on('end', async () => {
@@ -53,7 +57,7 @@ const start = async () => {
 		throw new Error('Failed to start the LBRY SDK: no stderr pipe')
 
 	const outputDecoder = new TextDecoder()
-	// @ts-ignore
+	// @ts-expect-error Despite the ReadableStream being iterable, something or other thinks it isn't
 	for await (const line of sdkInstance.stderr) {
 		const lineString = outputDecoder.decode(line).trim()
 		if (lineString.includes('RPC server failed to bind TCP')) {
