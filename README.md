@@ -26,7 +26,7 @@ Builds are available for a
 
 The GUI (graphical user interface) version functions like a standard desktop app, with visual elements to click on with the mouse.
 
-The CLI (console interface) version runs in the terminal.
+The CLI (command-line interface) version runs in the terminal.
 
 
 
