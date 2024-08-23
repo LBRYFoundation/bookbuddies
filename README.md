@@ -4,15 +4,15 @@ A project by the LBRY Foundation to allow you to seed relevant LBRY content, so 
 
 ## Running
 
-Builds are available for a
+Download the correct binary for your system from here, and run it.
 
 > [!IMPORTANT]
-> If you see an 'Illegal Instruction' error, this likely means your CPU does not support modern instructions. If this happens, you should use a `baseline` build from the [Releases](https://github.com/lbryfoundation/bookbuddies/releases) page.
+> If you see an 'Illegal Instruction' error, this likely means your CPU does not support modern instructions. If this happens, you should use a slower but compatible `baseline` build from the [Releases](https://github.com/lbryfoundation/bookbuddies/releases) page.
 
-| Platform | Architecture | UI       | Links |
+| Platform | Architecture | UI       | Link  |
 |----------|--------------|----------|-------|
-| Windows  | x64          | GUI      | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/windows-x64-gui) |
-| Windows  | x64          | CLI      | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/windows-x64-cli) |
+| Windows  | x64          | GUI      | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/windows-x64-gui.exe) |
+| Windows  | x64          | CLI      | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/windows-x64-cli.exe) |
 | macOS    | x64          | GUI      | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/macos-x64-gui) |
 | macOS    | x64          | CLI      | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/macos-x64-cli) |
 | macOS    | arm64        | GUI      | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/macos-arm64-gui) |
@@ -77,4 +77,8 @@ Windows ARM devices are currently unsupported.
 
 ## Contributing
 
-Pull requests are welcome! Simply make sure you run `bun lint` with updated packages before you submit one.
+Pull requests are welcome! Simply make sure you run `bun lint` with updated packages before you submit one to prevent any delays.
+
+## Security
+
+If you spot a vulnerability, you can disclose it safely at [`board@lbry.org`](mailto:board@lbry.org?subject=Responsible%20disclosure%20for%20vulnerability%20in%20bookbuddies).
