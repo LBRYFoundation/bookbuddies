@@ -9,7 +9,7 @@ Builds are available for a
 > [!IMPORTANT]
 > If you see an 'Illegal Instruction' error, this likely means your CPU does not support modern instructions. If this happens, you should use a `baseline` build from the [Releases](https://github.com/lbryfoundation/bookbuddies/releases) page.
 
-| Platform | Architecture | UI (GUI) | Links |
+| Platform | Architecture | UI       | Links |
 |----------|--------------|----------|-------|
 | Windows  | x64          | GUI      | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/windows-x64-gui) |
 | Windows  | x64          | CLI      | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/windows-x64-cli) |
