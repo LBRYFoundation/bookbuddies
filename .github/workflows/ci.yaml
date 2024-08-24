@@ -93,7 +93,9 @@ jobs:
         run: bun build:cli --target=bun-windows-x64 --outfile=dist/cli/windows/cli_windows_x64.exe
 
       - name: Build CLI for x64 (baseline)
-        run: BUN_RUNTIME_TRANSPILER_CACHE_PATH=0 bun build:cli --target=bun-windows-x64-baseline --outfile=dist/cli/windows/cli_windows_x64_baseline.exe
+        run: |
+          $env:BUN_RUNTIME_TRANSPILER_CACHE_PATH=0
+          bun build:cli --target=bun-windows-x64-baseline --outfile=dist/cli/windows/cli_windows_x64_baseline.exe
 
       - name: Use Resource Hacker
         run: |
