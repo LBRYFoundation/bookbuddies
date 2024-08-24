@@ -1,3 +1,5 @@
+![CI](https://github.com/lbryfoundation/bookbuddies/actions/workflows/ci.yaml/badge.svg?branch=main&event=push)
+
 # bookbuddies
 
 A project by the LBRY Foundation to allow you to seed relevant LBRY content, so the network becomes more decentralised!
