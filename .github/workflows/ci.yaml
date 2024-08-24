@@ -67,14 +67,14 @@ jobs:
         run: bun install
 
       - name: Build CLI for x64
-        run: bun build src/cli/cli.ts --target bun-darwin-x64 --outdir dist/macos/x64
+        run: bun build src/cli/cli.ts --target=bun-darwin-x64 --outfile=dist/cli/macos/cli_macos_x64
 
       - name: Build CLI for arm64
-        run: bun build src/cli/cli.ts --target bun-darwin-arm64 --outdir dist/macos/arm64
+        run: bun build src/cli/cli.ts --target=bun-darwin-arm64 --outfile=dist/cli/macos/cli_macos_arm64
 
       - name: Combine binaries using lipo
         run: |
-          lipo -create -output dist/macos/universal/cli dist/macos/x64/cli dist/macos/arm64/cli
+          lipo -create -output dist/cli/macos/cli_macos dist/cli/macos/cli_macos_arm64 dist/cli/macos/cli_macos_x64
 
   build-windows:
     name: Build CLI (Windows)
@@ -90,15 +90,15 @@ jobs:
         run: bun install
 
       - name: Build CLI for x64
-        run: bun build src/cli/cli.ts --target bun-windows-x64 --outdir dist/windows/x64
+        run: bun build src/cli/cli.ts --target=bun-windows-x64 --outfile=dist/cli/windows/cli_windows_x64.exe
 
       - name: Build CLI for x64 (baseline)
-        run: bun build src/cli/cli.ts --target bun-windows-x64-baseline --outdir dist/windows/x64-baseline
+        run: bun build src/cli/cli.ts --target=bun-windows-x64-baseline --outfile=dist/cli/windows/cli_windows_x64_baseline.exe
 
       - name: Use Resource Hacker
         run: |
-          ResourceHacker.exe -open dist/windows/x64/cli.exe -save dist/windows/x64/cli_modified.exe -action addoverwrite -res resource.res
-          ResourceHacker.exe -open dist/windows/x64-baseline/cli.exe -save dist/windows/x64-baseline/cli_modified.exe -action addoverwrite -res resource.res
+          ResourceHacker.exe -open dist/cli/windows/cli_windows_x64.exe -save dist/cli/windows/cli_windows_x64.exe -action addoverwrite -res resource.res
+          ResourceHacker.exe -open dist/cli/windows/cli_windows_x64_baseline.exe -save dist/cli/windows/cli_windows_x64_baseline.exe -action addoverwrite -res resource.res
 
   build-linux:
     name: Build CLI (Linux)
@@ -114,10 +114,10 @@ jobs:
         run: bun install
 
       - name: Build CLI for x64
-        run: bun build src/cli/cli.ts --target bun-linux-x64 --outdir dist/linux/x64
+        run: bun build src/cli/cli.ts --target=bun-linux-x64 --outfile=dist/cli/linux/cli_linux_x64
 
       - name: Build CLI for x64 (baseline)
-        run: bun build src/cli/cli.ts --target bun-linux-x64-baseline --outdir dist/linux/x64-baseline
+        run: bun build src/cli/cli.ts --target=bun-linux-x64-baseline --outfile=dist/cli/linux/cli_linux_x64_baseline
 
       - name: Build CLI for arm64
-        run: bun build src/cli/cli.ts --target bun-linux-arm64 --outdir dist/linux/arm64
+        run: bun build src/cli/cli.ts --target=bun-linux-arm64 --outfile=dist/cli/linux/cli_linux_arm64
