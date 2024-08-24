@@ -4,10 +4,10 @@
 lbrynet
 lbrynet.exe
 settings.json
-cli.exe
-cli
-gui.exe
-gui
+./cli.exe
+./cli
+./gui.exe
+./gui
 
 # Logs
 

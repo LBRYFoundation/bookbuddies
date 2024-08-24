@@ -1,5 +1,5 @@
 import { coreEvents, start } from '../core/core.js'
-import getOrCreateConfig from './config/config.ts'
+import getOrCreateConfig from './settings/settings.ts'
 import ora from 'ora'
 import 'colors'
 
