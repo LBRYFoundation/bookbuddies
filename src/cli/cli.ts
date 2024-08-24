@@ -14,7 +14,8 @@ const config = await getOrCreateConfig()
 import * as Sentry from '@sentry/bun'
 import commitHash from '../common/commit-hash.ts' with { type: 'macro' }
 import sentryDsn from '../common/sentry-dsn.ts' with { type: 'macro' }
-if (config.sentry && typeof sentryDsn !== 'undefined' && sentryDsn !== null) Sentry.init({ dsn: sentryDsn, release: commitHash })
+if (config.sentry && typeof sentryDsn !== 'undefined' && sentryDsn !== null)
+	Sentry.init({ dsn: sentryDsn, release: commitHash })
 
 let currentSpinner = ora({
 	text: 'Checking for the LBRY SDK',
