@@ -93,14 +93,14 @@ jobs:
 
       - name: Build CLI for x64
         run: bun build:cli --target=bun-windows-x64 --outfile=dist/cli/windows/cli_windows_x64.exe
-#
-#      - name: Build CLI for x64 (baseline)
-#        run: bun build:cli --target=bun-windows-x64-baseline --outfile=dist/cli/windows/cli_windows_x64_baseline.exe
-#
-#      - name: Use Resource Hacker
-#        run: |
-#          ResourceHacker.exe -open dist/cli/windows/cli_windows_x64.exe -save dist/cli/windows/cli_windows_x64.exe -action addoverwrite -res resource.res
-#          ResourceHacker.exe -open dist/cli/windows/cli_windows_x64_baseline.exe -save dist/cli/windows/cli_windows_x64_baseline.exe -action addoverwrite -res resource.res
+  #
+  #      - name: Build CLI for x64 (baseline)
+  #        run: bun build:cli --target=bun-windows-x64-baseline --outfile=dist/cli/windows/cli_windows_x64_baseline.exe
+  #
+  #      - name: Use Resource Hacker
+  #        run: |
+  #          ResourceHacker.exe -open dist/cli/windows/cli_windows_x64.exe -save dist/cli/windows/cli_windows_x64.exe -action addoverwrite -res resource.res
+  #          ResourceHacker.exe -open dist/cli/windows/cli_windows_x64_baseline.exe -save dist/cli/windows/cli_windows_x64_baseline.exe -action addoverwrite -res resource.res
 
   build-linux:
     name: Build CLI (Linux)
