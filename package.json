@@ -8,12 +8,12 @@
 		"@types/cli-progress": "^3.11.6",
 		"@types/eslint__js": "^8.42.3",
 		"@types/readline-sync": "^1.4.8",
-		"@typescript-eslint/eslint-plugin": "^8.2.0",
+		"@typescript-eslint/eslint-plugin": "^8.3.0",
 		"eslint": "^9.9.1",
 		"eslint-config-prettier": "^9.1.0",
 		"prettier": "^3.3.3",
 		"typescript": "^5.5.4",
-		"typescript-eslint": "^8.2.0"
+		"typescript-eslint": "^8.3.0"
 	},
 	"scripts": {
 		"lint": "bun update && bun eslint --fix && bun prettier . -w && bun tsc --noEmit",
@@ -28,12 +28,13 @@
 		"@inquirer/prompts": "^5.3.8",
 		"@sentry/bun": "^8.26.0",
 		"adm-zip": "^0.5.15",
+		"ajv": "^8.17.1",
 		"app-root-path": "^3.1.0",
 		"cli-progress": "^3.12.0",
 		"colors": "^1.4.0",
-		"hono": "^4.5.8",
+		"hono": "^4.5.9",
 		"jszip": "^3.10.1",
-		"ora": "^8.0.1",
+		"ora": "^8.1.0",
 		"readline-sync": "^1.4.10"
 	}
 }

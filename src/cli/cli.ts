@@ -35,7 +35,7 @@ coreEvents.on('lbrynet downloaded', () => {
 })
 coreEvents.on('lbrynet starting', () => {
 	currentSpinner = ora({
-		text: `Starting the LBRY SDK${process.platform === 'win32' ? ', this may trigger a Windows Firewall prompt or take a long time!' : ''}`,
+		text: `Starting the LBRY SDK, this may ${process.platform === 'win32' ? 'trigger a Windows Firewall prompt or ' : ''}take a long time!`,
 		spinner: 'bouncingBar'
 	}).start()
 })
