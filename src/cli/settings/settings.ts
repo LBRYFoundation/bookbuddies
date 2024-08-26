@@ -96,8 +96,17 @@ const requestSettings = async (
 export default async (): Promise<Settings> => {
 	const settingsFile = await Bun.file('settings.json')
 	let requiresRequest = false
-	const settingsJson = await settingsFile.json().catch(() => requiresRequest = true)
-	if (!ajv.validate(await Bun.file(schema as unknown as string).json(), settingsJson)) requiresRequest = true
-	if (requiresRequest) return await requestSettings(settingsFile, await settingsFile.exists())
+	const settingsJson = await settingsFile
+		.json()
+		.catch(() => (requiresRequest = true))
+	if (
+		!ajv.validate(
+			await Bun.file(schema as unknown as string).json(),
+			settingsJson
+		)
+	)
+		requiresRequest = true
+	if (requiresRequest)
+		return await requestSettings(settingsFile, await settingsFile.exists())
 	return settingsJson
 }

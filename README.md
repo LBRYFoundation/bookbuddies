@@ -15,10 +15,8 @@ Download the correct binary for your system from here, and run it.
 | -------- | ------------ | --- | ----------------------------------------------------------------------------------------------- |
 | Windows  | x64          | GUI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/windows-x64-gui.exe) |
 | Windows  | x64          | CLI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/windows-x64-cli.exe) |
-| macOS    | x64          | GUI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/macos-x64-gui)       |
-| macOS    | x64          | CLI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/macos-x64-cli)       |
-| macOS    | arm64        | GUI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/macos-arm64-gui)     |
-| macOS    | arm64        | CLI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/macos-arm64-cli)     |
+| macOS    | Universal    | GUI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/macos-x64-gui)       |
+| macOS    | Universal    | CLI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/macos-x64-cli)       |
 | Linux    | x64          | GUI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/linux-x64-gui)       |
 | Linux    | x64          | CLI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/linux-x64-cli)       |
 | Linux    | arm64        | GUI | [Download](https://github.com/lbryfoundation/bookbuddies/releases/download/linux-arm64-gui)     |

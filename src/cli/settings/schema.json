@@ -1,20 +1,20 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "type": "object",
-    "properties": {
-      "version": { "type": "number", "minimum": 1, "maximum": 1 },
-      "storageSpace": { "type": "number", "minimum": 1 },
-      "username": { "type": "string" },
-      "sentry": { "type": "boolean" },
-      "advanced": {
-        "type": "object",
-        "properties": {
-          "rpcPort": { "type": "number", "minimum": 1024, "maximum": 65535 },
-          "udpPort": { "type": "number", "minimum": 1024, "maximum": 65535 },
-          "tcpPort": { "type": "number", "minimum": 1024, "maximum": 65535 }
-        },
-        "required": ["rpcPort", "udpPort", "tcpPort"]
-      }
-    },
-    "required": ["version", "storageSpace", "sentry", "advanced"]
-  }
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"properties": {
+		"version": { "type": "number", "minimum": 1, "maximum": 1 },
+		"storageSpace": { "type": "number", "minimum": 1 },
+		"username": { "type": "string" },
+		"sentry": { "type": "boolean" },
+		"advanced": {
+			"type": "object",
+			"properties": {
+				"rpcPort": { "type": "number", "minimum": 1024, "maximum": 65535 },
+				"udpPort": { "type": "number", "minimum": 1024, "maximum": 65535 },
+				"tcpPort": { "type": "number", "minimum": 1024, "maximum": 65535 }
+			},
+			"required": ["rpcPort", "udpPort", "tcpPort"]
+		}
+	},
+	"required": ["version", "storageSpace", "sentry", "advanced"]
+}
