@@ -2,6 +2,10 @@ import { number, input, confirm } from '@inquirer/prompts'
 import colors from 'colors'
 import type { Settings } from '../../types/settings'
 import type { BunFile } from 'bun'
+import Ajv from 'ajv'
+import schema from './schema.json' with { type: 'file' }
+
+const ajv = new Ajv()
 
 const theme = {
 	prefix: '?',
@@ -90,6 +94,10 @@ const requestSettings = async (
 }
 
 export default async (): Promise<Settings> => {
-	const settingsFile = Bun.file('settings.json')
-	return await requestSettings(settingsFile, true)
+	const settingsFile = await Bun.file('settings.json')
+	let requiresRequest = false
+	const settingsJson = await settingsFile.json().catch(() => requiresRequest = true)
+	if (!ajv.validate(await Bun.file(schema as unknown as string).json(), settingsJson)) requiresRequest = true
+	if (requiresRequest) return await requestSettings(settingsFile, await settingsFile.exists())
+	return settingsJson
 }
